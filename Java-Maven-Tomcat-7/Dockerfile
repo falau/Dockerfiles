@@ -29,7 +29,8 @@ RUN rm -rf /opt/tomcat/webapps/ROOT
 # package webapp
 ONBUILD COPY . /usr/src/app
 ONBUILD WORKDIR /usr/src/app
-ONBUILD RUN mvn package
+ONBUILD RUN mvn verify
+ONBUILD RUN mvn package -Dmaven.test.skip=true
 ONBUILD RUN cp target/ROOT.war /opt/tomcat/webapps/
 
 # Launch Tomcat
