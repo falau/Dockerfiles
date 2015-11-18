@@ -29,7 +29,6 @@ RUN set -x && \
   make -j$(nproc) && \
   make install && \
   ldconfig && \
-  set -x && \  
   curl -SL 'https://bootstrap.pypa.io/get-pip.py' | python2 && \
   pip install --no-cache-dir --upgrade pip==$PYTHON_PIP_VERSION && \
   find /usr/local \
